@@ -1,5 +1,16 @@
 var currentDayEl = $('#currentDay');
 
+//creates an array of hours to loop through
+var hourRow = [
+    {
+        hour: "9",
+        box: "0",
+
+    }
+]
+
+
+
 //This displays the current day and date at the top of the calendar.
 function currentDate() {
     var rightNow = moment().format('dddd, MMMM Do, YYYY');
@@ -8,6 +19,12 @@ function currentDate() {
   }
 
 //timeblocks for the day
+
+
+  //create time column 
+
+ //create event info box
+  //create save button
 
 //timeblocks are color coded for past, present, future
 
@@ -19,5 +36,5 @@ function currentDate() {
 
 
 
-
+//This calls the current day/date function
 currentDate()

@@ -1,14 +1,9 @@
-var currentDayEl = $('#currentDay');
-
-//creates an array of hours to loop through
-var hourlyRow = [
-    {
-        hour: "9",
-        box: "0",
-
-    }
-]
-
+$(".time-slot").on("click", ".time-block", function() {
+    const text = $(this).text().trim();
+    const textInput = $("<textarea>")
+        .addClass("col-8 form-control")
+        .val(text);
+})
 
 
 //This displays the current day and date at the top of the calendar.
@@ -18,32 +13,7 @@ function currentDate() {
     console.log(rightNow)
   }
 
-//timeblocks row for the day
-hourlyRow.forEach(function() {
-    var timeBlock = $("<form>").attr({
-        "class": "row"
-    })
-    $(".container").append(timeBlock);
-})
 
-
-  //create time column 
-    var timeBox = $("<div>")
-        .attr({
-            "class": "hour col-2"
-        
-        })
-        .text('${hour.hour}')
- //create event info box
-    var eventBox = $('<div>')
-        .attr({
-            "class": "description col-8"
-        })
-  //create save button
-    var saveBtn = $("<button>")
-        .attr({
-            "class": "saveBtn col-2"
-        })
 //timeblocks are color coded for past, present, future
 
 //event for clicking on timeblock

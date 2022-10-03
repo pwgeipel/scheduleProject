@@ -1,7 +1,7 @@
 var currentDayEl = $('#currentDay');
 
 //creates an array of hours to loop through
-var hourRow = [
+var hourlyRow = [
     {
         hour: "9",
         box: "0",
@@ -18,11 +18,22 @@ function currentDate() {
     console.log(rightNow)
   }
 
-//timeblocks for the day
+//timeblocks row for the day
+hourlyRow.forEach(function() {
+    var timeBlock = $("<form>").attr({
+        "class": "row"
+    })
+    $(".container").append(timeBlock);
+})
 
 
   //create time column 
-
+    var timeBox = $("<div>")
+        .attr({
+            "class": "hour col-2";
+        
+        })
+        .text('${hour.hour}')
  //create event info box
   //create save button
 

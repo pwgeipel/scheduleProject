@@ -30,13 +30,20 @@ hourlyRow.forEach(function() {
   //create time column 
     var timeBox = $("<div>")
         .attr({
-            "class": "hour col-2";
+            "class": "hour col-2"
         
         })
         .text('${hour.hour}')
  //create event info box
+    var eventBox = $('<div>')
+        .attr({
+            "class": "description col-8"
+        })
   //create save button
-
+    var saveBtn = $("<button>")
+        .attr({
+            "class": "saveBtn col-2"
+        })
 //timeblocks are color coded for past, present, future
 
 //event for clicking on timeblock

@@ -3,6 +3,8 @@ $(".time-slot").on("click", ".time-block", function() {
     const textInput = $("<textarea>")
         .addClass("col-8 form-control")
         .val(text);
+
+    $(this).replaceWith(textInput);
 })
 
 
@@ -15,7 +17,24 @@ function currentDate() {
 
 
 //timeblocks are color coded for past, present, future
+function auditTime() {
+    const currentHour = moment().hour();
 
+    for (i = 9; i < 18; i++) {
+        const timeBlock = $("#hr-" + 1).find(".time-block");
+        timeBlock.removeClass("past present future");
+
+        if (currentHour < i) {
+            timeBlock.addClass("past")
+        }
+        else if (currentHour > i) {
+            timeBlock.addClass("future")
+        }
+        else {
+            timeBlock.addClass("present")
+        }
+    }
+}
 //event for clicking on timeblock
 
 //enter text into timeblock

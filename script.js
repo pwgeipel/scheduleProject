@@ -7,6 +7,16 @@ $(".time-slot").on("click", ".time-block", function() {
     $(this).replaceWith(textInput);
 })
 
+$(".saveBtn").on("click", function() {
+    const textArea = $(this).closest(".time-slot").find(".form-control")
+})
+    const text = textArea.val().trim();
+
+    const taskText = $("<div>")
+        .addClass("col-8 time-block")
+        .html("<p class='m-2 task-item'>" + text + "</p>");
+
+    textArea.replaceWith(taskText);
 
 //This displays the current day and date at the top of the calendar.
 function currentDate() {
@@ -37,7 +47,12 @@ function auditTime() {
 }
 //event for clicking on timeblock
 
-//enter text into timeblock
+
+// function addTask (taskTime, taskText) {
+//     const taskItem = $("<p>").addClass("m-2 task-item").text(taskText)
+
+//     $("#hr-" + taskTime).find(".time-block").append(taskItem)
+// }
 
 //text for event into local storage
 
@@ -45,3 +60,4 @@ function auditTime() {
 
 //This calls the current day/date function
 currentDate()
+auditTime()

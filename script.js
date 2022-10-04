@@ -1,18 +1,5 @@
 var tasks = [];
 
-$(".time-slot").on("click", ".time-block", function() {
-    const text = $(this).text().trim();
-    const textInput = $("<textarea>")
-        .addClass("col-8 form-control")
-        .val(text);
-
-    $(this).replaceWith(textInput);
-})
-
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(taskItem))
-}
-
 function loadTasks() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
 
@@ -34,13 +21,26 @@ function loadTasks() {
     tasks.forEach((task) => {
         addTask(task.time, task.task);
     });
-}
+};
 
 function addTask (taskTime, taskText) {
     const taskItem = $("<p>").addClass("m-2 task-item").text(taskText)
 
     $("#hr-" + taskTime).find(".time-block").append(taskItem)
 }
+
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+}
+
+$(".time-slot").on("click", ".time-block", function() {
+    const text = $(this).text().trim();
+    const textInput = $("<textarea>")
+        .addClass("col-8 form-control")
+        .val(text);
+
+    $(this).replaceWith(textInput);
+});
 
 $(".saveBtn").on("click", function() {
     const textArea = $(this).closest(".time-slot").find(".form-control")
@@ -105,5 +105,6 @@ function auditTime() {
 
 
 //This calls the current day/date function
-currentDate()
-auditTime()
+currentDate();
+auditTime();
+loadTasks();

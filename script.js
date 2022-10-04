@@ -25,10 +25,10 @@ function auditTime() {
         timeBlock.removeClass("past present future");
 
         if (currentHour < i) {
-            timeBlock.addClass("past")
+            timeBlock.addClass("future")
         }
         else if (currentHour > i) {
-            timeBlock.addClass("future")
+            timeBlock.addClass("past")
         }
         else {
             timeBlock.addClass("present")

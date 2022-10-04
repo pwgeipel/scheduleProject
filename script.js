@@ -1,4 +1,4 @@
-var = tasks[];
+var tasks = [];
 
 $(".time-slot").on("click", ".time-block", function() {
     const text = $(this).text().trim();

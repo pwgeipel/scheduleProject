@@ -36,6 +36,12 @@ function loadTasks() {
     });
 }
 
+function addTask (taskTime, taskText) {
+    const taskItem = $("<p>").addClass("m-2 task-item").text(taskText)
+
+    $("#hr-" + taskTime).find(".time-block").append(taskItem)
+}
+
 $(".saveBtn").on("click", function() {
     const textArea = $(this).closest(".time-slot").find(".form-control")
 
@@ -75,28 +81,24 @@ function auditTime() {
     const currentHour = moment().hour();
 
     for (i = 9; i < 18; i++) {
-        const timeBlock = $("#hr-" + 1).find(".time-block");
+        const timeBlock = $("#hr-" + i).find(".time-block");
         timeBlock.removeClass("past present future");
 
         if (currentHour < i) {
-            timeBlock.addClass("future")
+            timeBlock.addClass("future");
         }
         else if (currentHour > i) {
-            timeBlock.addClass("past")
+            timeBlock.addClass("past");
         }
         else {
-            timeBlock.addClass("present")
+            timeBlock.addClass("present");
         }
     }
 }
 //event for clicking on timeblock
 
 
-// function addTask (taskTime, taskText) {
-//     const taskItem = $("<p>").addClass("m-2 task-item").text(taskText)
 
-//     $("#hr-" + taskTime).find(".time-block").append(taskItem)
-// }
 
 //text for event into local storage
 

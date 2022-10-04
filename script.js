@@ -1,3 +1,5 @@
+var = tasks[];
+
 $(".time-slot").on("click", ".time-block", function() {
     const text = $(this).text().trim();
     const textInput = $("<textarea>")
@@ -9,7 +11,7 @@ $(".time-slot").on("click", ".time-block", function() {
 
 $(".saveBtn").on("click", function() {
     const textArea = $(this).closest(".time-slot").find(".form-control")
-})
+
     const text = textArea.val().trim();
 
     const taskText = $("<div>")
@@ -18,6 +20,22 @@ $(".saveBtn").on("click", function() {
 
     textArea.replaceWith(taskText);
 
+    const taskIndex = $(this).closest(".time-slot").index();
+
+    const taskTime = $(this)
+        .closest(".time-slot")
+        .attr("id")
+        .replace("hr-", "");
+
+    const taskObj = {
+        time: taskTime,
+        task: text
+    }
+
+    tasks[taskIndex] = taskObj;
+    saveTasks();
+    auditTime();
+})    
 //This displays the current day and date at the top of the calendar.
 function currentDate() {
     var rightNow = moment().format('dddd, MMMM Do, YYYY');

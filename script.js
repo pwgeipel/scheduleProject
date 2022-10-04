@@ -95,16 +95,7 @@ function auditTime() {
         }
     }
 }
-//event for clicking on timeblock
 
-
-
-
-//text for event into local storage
-
-
-
-//This calls the current day/date function
 currentDate();
 auditTime();
 loadTasks();

@@ -42,9 +42,8 @@ $(".saveBtn").on("click", function() {
 })    
 //This displays the current day and date at the top of the calendar.
 function currentDate() {
-    var rightNow = moment().format('dddd, MMMM Do, YYYY');
-    currentDayEl.text(rightNow);
-    console.log(rightNow)
+    $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'))
+   
   }
 
 

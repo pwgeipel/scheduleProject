@@ -9,6 +9,10 @@ $(".time-slot").on("click", ".time-block", function() {
     $(this).replaceWith(textInput);
 })
 
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(taskItem))
+}
+
 $(".saveBtn").on("click", function() {
     const textArea = $(this).closest(".time-slot").find(".form-control")
 

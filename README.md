@@ -1,4 +1,4 @@
-#Peter Geipel's Work Day Scheduler
+# Peter Geipel's Work Day Scheduler
 
 ## Description
 

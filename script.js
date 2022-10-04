@@ -13,6 +13,29 @@ function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(taskItem))
 }
 
+function loadTasks() {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+
+    if (!tasks) {
+        tasks = [{
+            time: "",
+            task: ""
+        }]
+    };
+
+    for (var i = 0; i < tasks.length; i++) {
+        if (!tasks[i]) {
+            tasks[i] = {
+                time: "",
+                task: ""
+            }
+        };
+    };
+    tasks.forEach((task) => {
+        addTask(task.time, task.task);
+    });
+}
+
 $(".saveBtn").on("click", function() {
     const textArea = $(this).closest(".time-slot").find(".form-control")
 

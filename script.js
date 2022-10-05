@@ -1,5 +1,6 @@
+//empty array for tasks
 var tasks = [];
-
+//gets items from localStorage
 function loadTasks() {
     tasks = JSON.parse(localStorage.getItem("tasks"));
 
@@ -22,17 +23,17 @@ function loadTasks() {
         addTask(task.time, task.task);
     });
 };
-
+//adds text of created event to timeblock
 function addTask (taskTime, taskText) {
     const taskItem = $("<p>").addClass("m-2 task-item").text(taskText)
 
     $("#hr-" + taskTime).find(".time-block").append(taskItem)
 }
-
+//saves tasks to localStorage
 function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks))
 }
-
+//creates the elements showing the time of each timeblock
 $(".time-slot").on("click", ".time-block", function() {
     const text = $(this).text().trim();
     const textInput = $("<textarea>")
@@ -41,12 +42,12 @@ $(".time-slot").on("click", ".time-block", function() {
 
     $(this).replaceWith(textInput);
 });
-
+//eventlistener for save button
 $(".saveBtn").on("click", function() {
     const textArea = $(this).closest(".time-slot").find(".form-control")
 
     const text = textArea.val().trim();
-
+//converts entered text into taskText
     const taskText = $("<div>")
         .addClass("col-8 time-block")
         .html("<p class='m-2 task-item'>" + text + "</p>");
@@ -71,11 +72,8 @@ $(".saveBtn").on("click", function() {
 })    
 //This displays the current day and date at the top of the calendar.
 function currentDate() {
-    $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'))
-   
+    $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'))   
   }
-
-
 //timeblocks are color coded for past, present, future
 function auditTime() {
     const currentHour = moment().hour();
@@ -95,7 +93,7 @@ function auditTime() {
         }
     }
 }
-
+//calls the date, loadtasks, and audittime functions
 currentDate();
 auditTime();
 loadTasks();

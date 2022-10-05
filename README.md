@@ -6,4 +6,6 @@ This app allows a user to enter a task into a one-hour period during business ho
 
 During the course of the day, the color of the timeblocks will change, from green for future times, to red for the present, and finally gray for past events.
 
+![screenshot of Peter Geipels Schedule](Assets/ScreenshotSchedule.jpg)
+
 https://pwgeipel.github.io/scheduleProject/
